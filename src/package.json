@@ -1,0 +1,28 @@
+{
+  "name": "angular-upcrop",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matheusdavidson/angular-upcrop"
+  },
+  "author": {
+    "name": "Matheus Davidson",
+    "email": "matheusdavidson@gmail.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matheusdavidson/angular-upcrop/issues"
+  },
+  "main": "angular-upcrop.umd.js",
+  "module": "angular-upcrop.js",
+  "jsnext:main": "angular-upcrop.js",
+  "typings": "angular-upcrop.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
