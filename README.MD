@@ -1,22 +1,16 @@
 # angular-upcrop
 
-## Installation
+Library with upload and crop feature for Angular 4+
 
-To install this library, run:
+## How to use
+
+1- Install `angular-upcrop`
 
 ```bash
 $ npm install angular-upcrop --save
 ```
 
-## Consuming your library
-
-Once you have published your library to npm, you can import your library in any Angular application by running:
-
-```bash
-$ npm install angular-upcrop
-```
-
-and then from your Angular `AppModule`:
+2- Add `angular-upcrop` to the module you want to use, for example: `AppModule`
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,8 +18,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-// Import your library
-import { SampleModule } from 'angular-upcrop';
+//
+// Import and load UpcropModule
+import { UpcropModule } from 'angular-upcrop';
 
 @NgModule({
   declarations: [
@@ -34,8 +29,9 @@ import { SampleModule } from 'angular-upcrop';
   imports: [
     BrowserModule,
 
-    // Specify your library as an import
-    LibraryModule
+    //
+    // Load UpcropModule
+    UpcropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -43,14 +39,62 @@ import { SampleModule } from 'angular-upcrop';
 export class AppModule { }
 ```
 
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
+3- Now you need to create an action for some button inside your component and trigger the `open` method in `UpcropService`
 
-```xml
-<!-- You can now use your library component in app.component.html -->
-<h1>
-  {{title}}
-</h1>
-<sampleComponent></sampleComponent>
+**Import `UpcropService` in the component you want to use, for example: `AppComponentModule`, add to the providers section then create an action to trigger `open()`
+
+```typescript
+
+//
+// Import the service
+import { UpcropService } from 'angular-upcrop';
+
+@Component({
+
+  ...
+
+  //
+  // Add UpcropService to the component providers
+  providers: [UpcropService],
+
+  ...
+})
+export class AppComponentModule { 
+
+  ...
+
+  //
+  // Create a method in the component to trigger upcrop
+  openUpcrop() {
+
+    // 
+    // Set config for dialog, upload and crop components
+    let dialogConfig = {};
+    let uploadConfig = {
+        url: environment.api + 'products/models/upload',
+        additionalParameter: {}
+    };
+    let cropConfig = {};
+
+    // 
+    // Open upcrop dialog
+    this.upcropService.open(dialogConfig, uploadConfig, cropConfig).then((data) => {
+
+        // 
+        // Data will contain an array with the images
+        data;
+    }).catch((err) => {
+    });
+  }
+
+  ...
+
+}
+```
+
+**Now you just need to call the `openUpcrop` method you've created**
+```html
+<button (click)="openUpcrop()">Open upcrop</button>
 ```
 
 ## Development
