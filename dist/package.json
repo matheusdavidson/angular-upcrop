@@ -1,0 +1,45 @@
+{
+  "name": "angular-upcrop",
+  "version": "0.1.0",
+  "description": "Library with upload and crop feature for Angular 4+",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matheusdavidson/angular-upcrop"
+  },
+  "author": {
+    "name": "Matheus Davidson",
+    "email": "matheusdavidson@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "angular4",
+    "upload",
+    "ng2-file-upload",
+    "cropperjs",
+    "cropper",
+    "image",
+    "angular-library",
+    "angular-component"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matheusdavidson/angular-upcrop/issues"
+  },
+  "main": "angular-upcrop.umd.js",
+  "module": "angular-upcrop.js",
+  "jsnext:main": "angular-upcrop.js",
+  "typings": "angular-upcrop.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  },
+  "dependencies": {
+    "@angular/cdk": "^2.0.0-beta.10",
+    "@angular/flex-layout": "^2.0.0-beta.9",
+    "@angular/material": "^2.0.0-beta.10",
+    "angular-cropperjs": "^0.1.3",
+    "lodash": "^4.17.4",
+    "ng2-file-upload": "^1.2.1"
+  }
+}
