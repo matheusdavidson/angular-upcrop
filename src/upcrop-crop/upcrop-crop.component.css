@@ -1,0 +1,29 @@
+.crop-image-container {
+    max-height: 500px;
+    width: 100%;
+}
+
+.crop-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.crop-controls {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+[main-loading] {
+    min-height: 120px;
+    padding-top: 34px;
+    box-sizing: border-box;
+    flex-direction: column;
+    max-width: 100%;
+    place-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.upcrop-crop .has-text-centered {
+    text-align: center!important;
+}

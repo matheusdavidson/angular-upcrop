@@ -1,0 +1,40 @@
+<label ng2FileDrop multiple class="my-drop-zone" [ngClass]="{'nv-file-over': hasFileOver}" (fileOver)="onFileOver($event)"
+    [uploader]="uploader" fxLayout fxLayoutAlign="center center">
+    Área de upload
+    <input type="file" ng2FileSelect multiple [uploader]="uploader" style="display: none" />
+</label>
+
+<!-- FILES -->
+<table class="table upcrop-upload-table">
+    <thead>
+        <tr>
+            <th>Preview</th>
+            <th>Arquivo</th>
+            <th>
+                <md-icon class="is-pulled-right">settings</md-icon>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of uploader.queue">
+            <td style="width:120px">
+                <img upcropImagePreview [image]="item?._file" class="media-object" />
+            </td>
+            <td>{{ truncate(item?.file?.name, 16) }}</td>
+            <td class="actions" style="width:53px">
+
+                <a class="button is-small is-danger is-outlined" (click)="item.remove()">
+                    <span class="icon is-small">
+                        <i class="fa fa-trash"></i>
+                    </span>
+                </a>
+            </td>
+        </tr>
+        <tr [hidden]="uploader.queue.length">
+            <td colspan="3" class="has-text-danger">
+                Nenhum arquivo, adicione acima.
+            </td>
+        </tr>
+    </tbody>
+</table>
