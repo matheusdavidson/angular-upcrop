@@ -41,7 +41,7 @@ export class AppModule { }
 
 3- Now you need to create an action for some button inside your component and trigger the `open` method in `UpcropService`
 
-**Import `UpcropService` in the component you want to use, for example: `AppComponentModule`, add to the providers section then create an action to trigger `open()`
+*Import `UpcropService` in the component you want to use, for example: `AppComponentModule`, add to the providers section then create an action to trigger `open()`*
 
 ```typescript
 
@@ -92,7 +92,7 @@ export class AppComponentModule {
 }
 ```
 
-**Now you just need to call the `openUpcrop` method you've created**
+*Now you just need to call the `openUpcrop` method you've created*
 ```html
 <button (click)="openUpcrop()">Open upcrop</button>
 ```

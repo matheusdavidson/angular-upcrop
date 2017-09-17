@@ -39,4 +39,9 @@ export declare class UpcropDialogComponent implements OnInit {
      * @param event
      */
     onUploadImage(event: any): void;
+    /**
+     * Create url params
+     * @param obj
+     */
+    createUrlParams(obj: any): string;
 }

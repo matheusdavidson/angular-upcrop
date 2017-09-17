@@ -303,7 +303,7 @@ var UpcropCropComponent = (function () {
 UpcropCropComponent.decorators = [
     { type: Component, args: [{
                 selector: 'app-upcrop-crop',
-                template: "<div main-loading [fxHide]=\"!uploading\"> <div class=\"spinner\"></div></div><div [hidden]=\"uploading\" class=\"upcrop-crop\"> <h2 class=\"has-text-centered mat-subheading-2\">Imagem{{currentNumber + 1}}de{{uploader?.queue?.length}}</h2> <div class=\"crop-image-container\"> <angular-cropper #angularCropper *ngIf=\"current && current._dataUrl\" [cropperOptions]=\"config\" [imageUrl]=\"current?._dataUrl\"></angular-cropper> </div><div class=\"crop-controls\" fxLayout fxLayoutAlign=\"center center\" fxLayoutWrap *ngIf=\"current && current._dataUrl\"> <button md-button (click)=\"zoomIn()\" class=\"md-icon-button\" aria-label=\"Aumentar zoom\" mdTooltip=\"Aumentar zoom\"> <md-icon>zoom_in</md-icon> </button> <button md-button (click)=\"zoomOut()\" class=\"md-icon-button\" aria-label=\"Diminuir zoom\" mdTooltip=\"Diminuir zoom\"> <md-icon>zoom_out</md-icon> </button> <button md-button (click)=\"goLeft()\" class=\"md-icon-button\" aria-label=\"Mover para esquerda\" mdTooltip=\"Mover para esquerda\"> <md-icon>keyboard_arrow_left</md-icon> </button> <button md-button (click)=\"goRight()\" class=\"md-icon-button\" aria-label=\"Mover para direita\" mdTooltip=\"Mover para direita\"> <md-icon>keyboard_arrow_right</md-icon> </button> <button md-button (click)=\"goUp()\" class=\"md-icon-button\" aria-label=\"Mover para cima\" mdTooltip=\"Mover para cima\"> <md-icon>keyboard_arrow_up</md-icon> </button> <button md-button (click)=\"goDown()\" class=\"md-icon-button\" aria-label=\"Mover para baixo\" mdTooltip=\"Mover para baixo\"> <md-icon>keyboard_arrow_down</md-icon> </button> <button md-button (click)=\"rotateLeft()\" class=\"md-icon-button\" aria-label=\"Girar para esquerda\" mdTooltip=\"Girar para esquerda\"> <md-icon>rotate_left</md-icon> </button> <button md-button (click)=\"rotateRight()\" class=\"md-icon-button\" aria-label=\"Girar para direita\" mdTooltip=\"Girar para direita\"> <md-icon>rotate_right</md-icon> </button> <button md-button (click)=\"reset()\" class=\"md-icon-button md-primary\" aria-label=\"Restaurar imagem original\" mdTooltip=\"Restaurar imagem original\"> <md-icon>cached</md-icon> </button> </div></div>",
+                template: "<div main-loading [fxHide]=\"!uploading\"> <div class=\"spinner\"></div></div><div [hidden]=\"uploading\" class=\"upcrop-crop\"> <h2 class=\"has-text-centered mat-subheading-2\">Imagem{{currentNumber + 1}}de{{uploader?.queue?.length}}</h2> <div class=\"crop-image-container\"> <angular-cropper #angularCropper *ngIf=\"current && current._dataUrl\" [cropperOptions]=\"config\" [imageUrl]=\"current?._dataUrl\"></angular-cropper> </div><div class=\"crop-controls\" fxLayout fxLayoutAlign=\"center center\" fxLayoutWrap *ngIf=\"current && current._dataUrl\"> <button md-button (click)=\"zoomIn()\" class=\"md-icon-button\" aria-label=\"Aumentar zoom\" mdTooltip=\"Aumentar zoom\"> <md-icon>zoom_in</md-icon> </button> <button md-button (click)=\"zoomOut()\" class=\"md-icon-button\" aria-label=\"Diminuir zoom\" mdTooltip=\"Diminuir zoom\"> <md-icon>zoom_out</md-icon> </button> <button md-button (click)=\"goLeft()\" class=\"md-icon-button\" aria-label=\"Mover para esquerda\" mdTooltip=\"Mover para esquerda\"> <md-icon>keyboard_arrow_left</md-icon> </button> <button md-button (click)=\"goRight()\" class=\"md-icon-button\" aria-label=\"Mover para direita\" mdTooltip=\"Mover para direita\"> <md-icon>keyboard_arrow_right</md-icon> </button> <button md-button (click)=\"goUp()\" class=\"md-icon-button\" aria-label=\"Mover para cima\" mdTooltip=\"Mover para cima\"> <md-icon>keyboard_arrow_up</md-icon> </button> <button md-button (click)=\"goDown()\" class=\"md-icon-button\" aria-label=\"Mover para baixo\" mdTooltip=\"Mover para baixo\"> <md-icon>keyboard_arrow_down</md-icon> </button> <button md-button (click)=\"reset()\" class=\"md-icon-button md-primary\" aria-label=\"Restaurar imagem original\" mdTooltip=\"Restaurar imagem original\"> <md-icon>cached</md-icon> </button> </div></div>",
                 styles: ['.crop-image-container{max-height:500px;width:100%}.crop-image-container img{max-width:100%;max-height:100%}.crop-controls{padding-top:20px;padding-bottom:20px}[main-loading]{min-height:120px;padding-top:34px;box-sizing:border-box;flex-direction:column;max-width:100%;place-content:center;align-items:center;display:flex}.upcrop-crop .has-text-centered{text-align:center!important}']
             },] },
 ];
@@ -423,7 +423,12 @@ var UpcropDialogComponent = (function () {
      * @return {?}
      */
     UpcropDialogComponent.prototype.onCropImage = function (event) {
-        this.cropData[event.file] = event.data;
+        // 
+        // Create url params with crop data
+        var /** @type {?} */ cropData = this.createUrlParams(event.data);
+        // 
+        // Add crop to uploader file crop data
+        this.upcropUpload.uploader.queue[event.file].url = this.data.uploadConfig.url + cropData;
     };
     /**
      * On upload image event
@@ -432,6 +437,26 @@ var UpcropDialogComponent = (function () {
      */
     UpcropDialogComponent.prototype.onUploadImage = function (event) {
         this.uploadedImages.push(event.file);
+    };
+    /**
+     * Create url params
+     * @param {?} obj
+     * @return {?}
+     */
+    UpcropDialogComponent.prototype.createUrlParams = function (obj) {
+        // 
+        // Validate obj
+        if (!obj)
+            return '';
+        // 
+        // First param
+        var /** @type {?} */ url = '?';
+        // 
+        // Generate url param
+        var /** @type {?} */ params = Object.keys(obj).map(function (key) {
+            return key + '=' + encodeURIComponent(obj[key]);
+        }).join('&');
+        return url + params;
     };
     return UpcropDialogComponent;
 }());
