@@ -135,7 +135,14 @@ export class UpcropDialogComponent implements OnInit {
      * @param event 
      */
     onCropImage(event) {
-        this.cropData[event.file] = event.data;
+
+        // 
+        // Create url params with crop data
+        const cropData = this.createUrlParams(event.data);
+
+        // 
+        // Add crop to uploader file crop data
+        this.upcropUpload.uploader.queue[event.file].url = this.data.uploadConfig.url + cropData;
     }
 
     /**
@@ -144,5 +151,28 @@ export class UpcropDialogComponent implements OnInit {
      */
     onUploadImage(event) {
         this.uploadedImages.push(event.file);
+    }
+
+    /**
+     * Create url params
+     * @param obj 
+     */
+    createUrlParams(obj) {
+
+        // 
+        // Validate obj
+        if (!obj) return '';
+
+        // 
+        // First param
+        const url = '?';
+
+        // 
+        // Generate url param
+        const params = Object.keys(obj).map(function (key) {
+            return key + '=' + encodeURIComponent(obj[key]);
+        }).join('&');
+
+        return url + params;
     }
 }
