@@ -150,7 +150,7 @@ export class UpcropDialogComponent implements OnInit {
      * @param event 
      */
     onUploadImage(event) {
-        this.uploadedImages.push(event.file);
+        this.uploadedImages.push(event.image);
     }
 
     /**

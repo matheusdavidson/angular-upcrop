@@ -79,7 +79,7 @@ export class UpcropUploadComponent implements OnInit {
                 // 
                 // Emit onUploadQueue
                 this.onUploadImage.emit({
-                    file: data.file
+                    image: data.image
                 });
             } else {
             }
