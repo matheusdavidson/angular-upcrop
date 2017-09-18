@@ -57,6 +57,14 @@ var UpcropUploadComponent = (function () {
         };
     };
     /**
+     * On file over event
+     * @param {?} e
+     * @return {?}
+     */
+    UpcropUploadComponent.prototype.onFileOver = function (e) {
+        this.hasFileOver = e;
+    };
+    /**
      * Truncate filename
      * @param {?} n
      * @param {?} len

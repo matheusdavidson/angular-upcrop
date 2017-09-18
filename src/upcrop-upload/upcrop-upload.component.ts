@@ -87,6 +87,14 @@ export class UpcropUploadComponent implements OnInit {
     }
 
     /**
+     * On file over event
+     * @param {event} e 
+     */
+    public onFileOver(e: any): void {
+        this.hasFileOver = e;
+    }
+
+    /**
      * Truncate filename
      * @param n 
      * @param len 

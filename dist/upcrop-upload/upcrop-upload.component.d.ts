@@ -14,6 +14,11 @@ export declare class UpcropUploadComponent implements OnInit {
      */
     setUploader(): void;
     /**
+     * On file over event
+     * @param {event} e
+     */
+    onFileOver(e: any): void;
+    /**
      * Truncate filename
      * @param n
      * @param len
