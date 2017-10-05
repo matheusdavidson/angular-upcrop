@@ -1,6 +1,6 @@
 {
   "name": "angular-upcrop",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Library with upload and crop feature for Angular 4+",
   "repository": {
     "type": "git",
