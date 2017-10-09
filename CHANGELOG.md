@@ -1,3 +1,19 @@
+<a name="0.1.4"></a>
+## [0.1.4](https://github.com/matheusdavidson/angular-upcrop/compare/v0.1.2...v0.1.4) (2017-10-09)
+
+
+### Bug Fixes
+
+* **upload:** uploadedImages is empty after uploader.onCompleteAll, Fixes [#2](https://github.com/matheusdavidson/angular-upcrop/issues/2) ([ab9a654](https://github.com/matheusdavidson/angular-upcrop/commit/ab9a654))
+
+
+### Features
+
+* **upgrade/material:** upgrade material to 2.0.0-beta.12 ([5b8743f](https://github.com/matheusdavidson/angular-upcrop/commit/5b8743f))
+* **upgrade/material:** upgrade material to 2.0.0-beta.12 ([9e5a885](https://github.com/matheusdavidson/angular-upcrop/commit/9e5a885))
+
+
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/matheusdavidson/angular-upcrop/compare/v0.1.2...v0.1.3) (2017-10-05)
 
