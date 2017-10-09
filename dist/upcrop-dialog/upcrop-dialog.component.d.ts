@@ -1,9 +1,9 @@
 import { OnInit } from '@angular/core';
-import { MdDialogRef } from "@angular/material";
+import { MatDialogRef } from "@angular/material";
 import { UpcropUploadComponent } from "../upcrop-upload/upcrop-upload.component";
 import { UpcropCropComponent } from "../upcrop-crop/upcrop-crop.component";
 export declare class UpcropDialogComponent implements OnInit {
-    dialogRef: MdDialogRef<UpcropDialogComponent>;
+    dialogRef: MatDialogRef<UpcropDialogComponent>;
     data: any;
     upcropUpload: UpcropUploadComponent;
     upcropCrop: UpcropCropComponent;
@@ -11,7 +11,7 @@ export declare class UpcropDialogComponent implements OnInit {
     uploadedImages: any[];
     uploader: any;
     steps: any;
-    constructor(dialogRef: MdDialogRef<UpcropDialogComponent>, data: any);
+    constructor(dialogRef: MatDialogRef<UpcropDialogComponent>, data: any);
     ngOnInit(): void;
     /**
      * Go to step 1

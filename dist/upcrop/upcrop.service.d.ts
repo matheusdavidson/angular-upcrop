@@ -1,10 +1,10 @@
-import { MdDialog } from "@angular/material";
+import { MatDialog } from "@angular/material";
 export declare class UpcropService {
-    dialog: MdDialog;
+    dialog: MatDialog;
     dialogConfig: any;
     uploadConfig: any;
     cropConfig: any;
-    constructor(dialog: MdDialog);
+    constructor(dialog: MatDialog);
     /**
      * Open dialog with uplaod & crop
      * @param {object} dialogConfig

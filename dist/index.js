@@ -1,7 +1,7 @@
 import { Component, Directive, ElementRef, EventEmitter, Inject, Injectable, Input, NgModule, Output, Renderer, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileUploadModule, FileUploader } from 'ng2-file-upload/index';
-import { MD_DIALOG_DATA, MdButtonModule, MdCardModule, MdDialog, MdDialogModule, MdDialogRef, MdIconModule, MdTooltipModule } from '@angular/material';
+import { MAT_DIALOG_DATA, MatButtonModule, MatCardModule, MatDialog, MatDialogModule, MatDialogRef, MatIconModule, MatTooltipModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularCropperjsModule } from 'angular-cropperjs';
 
@@ -479,8 +479,8 @@ UpcropDialogComponent.decorators = [
  * @nocollapse
  */
 UpcropDialogComponent.ctorParameters = function () { return [
-    { type: MdDialogRef, },
-    { type: undefined, decorators: [{ type: Inject, args: [MD_DIALOG_DATA,] },] },
+    { type: MatDialogRef, },
+    { type: undefined, decorators: [{ type: Inject, args: [MAT_DIALOG_DATA,] },] },
 ]; };
 UpcropDialogComponent.propDecorators = {
     'upcropUpload': [{ type: ViewChild, args: ['upcropUpload',] },],
@@ -612,7 +612,7 @@ UpcropService.decorators = [
  * @nocollapse
  */
 UpcropService.ctorParameters = function () { return [
-    { type: MdDialog, },
+    { type: MatDialog, },
 ]; };
 
 var AngularUpcropModule = (function () {
@@ -634,11 +634,11 @@ AngularUpcropModule.decorators = [
                     CommonModule,
                     FileUploadModule,
                     FlexLayoutModule,
-                    MdCardModule,
-                    MdIconModule,
-                    MdButtonModule,
-                    MdDialogModule,
-                    MdTooltipModule,
+                    MatCardModule,
+                    MatIconModule,
+                    MatButtonModule,
+                    MatDialogModule,
+                    MatTooltipModule,
                     AngularCropperjsModule
                 ],
                 declarations: [

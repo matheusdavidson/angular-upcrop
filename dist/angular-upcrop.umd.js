@@ -478,8 +478,8 @@ UpcropDialogComponent.decorators = [
  * @nocollapse
  */
 UpcropDialogComponent.ctorParameters = function () { return [
-    { type: material.MdDialogRef, },
-    { type: undefined, decorators: [{ type: core.Inject, args: [material.MD_DIALOG_DATA,] },] },
+    { type: material.MatDialogRef, },
+    { type: undefined, decorators: [{ type: core.Inject, args: [material.MAT_DIALOG_DATA,] },] },
 ]; };
 UpcropDialogComponent.propDecorators = {
     'upcropUpload': [{ type: core.ViewChild, args: ['upcropUpload',] },],
@@ -611,7 +611,7 @@ UpcropService.decorators = [
  * @nocollapse
  */
 UpcropService.ctorParameters = function () { return [
-    { type: material.MdDialog, },
+    { type: material.MatDialog, },
 ]; };
 
 var AngularUpcropModule = (function () {
@@ -633,11 +633,11 @@ AngularUpcropModule.decorators = [
                     common.CommonModule,
                     index.FileUploadModule,
                     flexLayout.FlexLayoutModule,
-                    material.MdCardModule,
-                    material.MdIconModule,
-                    material.MdButtonModule,
-                    material.MdDialogModule,
-                    material.MdTooltipModule,
+                    material.MatCardModule,
+                    material.MatIconModule,
+                    material.MatButtonModule,
+                    material.MatDialogModule,
+                    material.MatTooltipModule,
                     angularCropperjs.AngularCropperjsModule
                 ],
                 declarations: [
