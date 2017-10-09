@@ -7,7 +7,7 @@ import { UpcropDialogComponent } from './upcrop-dialog/upcrop-dialog.component';
 import { UpcropImagePreviewDirective } from './upcrop-image-preview/upcrop-image-preview.directive';
 import { FileUploadModule } from 'ng2-file-upload';
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { MdCardModule, MdIconModule, MdButtonModule, MdDialogModule, MdTooltipModule } from "@angular/material";
+import { MatCardModule, MatIconModule, MatButtonModule, MatDialogModule, MatTooltipModule } from "@angular/material";
 import { AngularCropperjsModule } from 'angular-cropperjs';
 
 export * from './upcrop-upload/upcrop-upload.component';
@@ -21,11 +21,11 @@ export * from './upcrop/upcrop.service';
         CommonModule,
         FileUploadModule,
         FlexLayoutModule,
-        MdCardModule,
-        MdIconModule,
-        MdButtonModule,
-        MdDialogModule,
-        MdTooltipModule,
+        MatCardModule,
+        MatIconModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatTooltipModule,
         AngularCropperjsModule
     ],
     declarations: [

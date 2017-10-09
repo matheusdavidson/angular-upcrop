@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MdDialog } from "@angular/material";
+import { MatDialog } from "@angular/material";
 import { UpcropDialogComponent } from "../upcrop-dialog/upcrop-dialog.component";
 
 @Injectable()
@@ -29,7 +29,7 @@ export class UpcropService {
 
 
     constructor(
-        public dialog: MdDialog
+        public dialog: MatDialog
     ) { }
 
 

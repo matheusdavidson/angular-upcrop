@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { MD_DIALOG_DATA, MdDialogRef } from "@angular/material";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { UpcropUploadComponent } from "../upcrop-upload/upcrop-upload.component";
 import { UpcropCropComponent } from "../upcrop-crop/upcrop-crop.component";
 import * as _ from 'lodash';
@@ -39,8 +39,8 @@ export class UpcropDialogComponent implements OnInit {
 
 
     constructor(
-        public dialogRef: MdDialogRef<UpcropDialogComponent>,
-        @Inject(MD_DIALOG_DATA) public data: any
+        public dialogRef: MatDialogRef<UpcropDialogComponent>,
+        @Inject(MAT_DIALOG_DATA) public data: any
     ) { }
 
 
