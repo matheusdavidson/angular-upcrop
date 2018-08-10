@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { AngularUpcropComponent } from './angular-upcrop.component';
+import { UpcropComponent } from './upcrop/upcrop.component';
 
 @NgModule({
-  imports: [
-  ],
-  declarations: [AngularUpcropComponent],
-  exports: [AngularUpcropComponent]
+    imports: [
+    ],
+    declarations: [UpcropComponent],
+    exports: [UpcropComponent]
 })
 export class AngularUpcropModule { }

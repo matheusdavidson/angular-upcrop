@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AngularUpcropComponent } from './angular-upcrop.component';
+import { UpcropComponent } from './upcrop.component';
 
-describe('AngularUpcropComponent', () => {
-  let component: AngularUpcropComponent;
-  let fixture: ComponentFixture<AngularUpcropComponent>;
+describe('UpcropComponent', () => {
+  let component: UpcropComponent;
+  let fixture: ComponentFixture<UpcropComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AngularUpcropComponent ]
+      declarations: [ UpcropComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AngularUpcropComponent);
+    fixture = TestBed.createComponent(UpcropComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

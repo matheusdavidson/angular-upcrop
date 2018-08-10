@@ -2,14 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'angular-upcrop',
-    template: `
-    <p>
-      angular-upcrop works!
-    </p>
-  `,
-    styles: []
+    templateUrl: './upcrop.component.html',
+    styleUrls: ['./upcrop.component.css']
 })
-export class AngularUpcropComponent implements OnInit {
+export class UpcropComponent implements OnInit {
 
     constructor() { }
 
