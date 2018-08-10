@@ -125,6 +125,46 @@
           }
         }
       }
+    },
+    "angular-upcrop": {
+      "root": "projects/angular-upcrop",
+      "sourceRoot": "projects/angular-upcrop/src",
+      "projectType": "library",
+      "prefix": "angular",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/angular-upcrop/tsconfig.lib.json",
+            "project": "projects/angular-upcrop/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/angular-upcrop/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-upcrop/src/test.ts",
+            "tsConfig": "projects/angular-upcrop/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-upcrop/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-upcrop/tsconfig.lib.json",
+              "projects/angular-upcrop/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-upcrop-app"
