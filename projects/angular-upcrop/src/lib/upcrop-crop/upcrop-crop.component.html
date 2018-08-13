@@ -1,0 +1,43 @@
+<!-- MAIN LOAD -->
+<div class="crop-loading" [fxHide]="!uploading">
+    <div class="spinner"></div>
+</div>
+
+<div [hidden]="uploading" class="upcrop-crop">
+    <h2 class="has-text-centered mat-subheading-2">Imagem {{currentNumber + 1}} de {{uploader?.queue?.length}}</h2>
+
+    <div class="crop-image-container">
+        <angular-cropper #angularCropper *ngIf="current && current._dataUrl" [cropperOptions]="config" [imageUrl]="current?._dataUrl"></angular-cropper>
+    </div>
+
+    <!--CROPPER CONTROLS-->
+    <div class="crop-controls" fxLayout fxLayoutAlign="center center" fxLayoutWrap *ngIf="current && current._dataUrl">
+        <button mat-button (click)="zoomIn()" class="mat-icon-button" aria-label="Aumentar zoom" mdTooltip="Aumentar zoom">
+            <mat-icon>zoom_in</mat-icon>
+        </button>
+
+        <button mat-button (click)="zoomOut()" class="mat-icon-button" aria-label="Diminuir zoom" mdTooltip="Diminuir zoom">
+            <mat-icon>zoom_out</mat-icon>
+        </button>
+
+        <button mat-button (click)="goLeft()" class="mat-icon-button" aria-label="Mover para esquerda" mdTooltip="Mover para esquerda">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+
+        <button mat-button (click)="goRight()" class="mat-icon-button" aria-label="Mover para direita" mdTooltip="Mover para direita">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+
+        <button mat-button (click)="goUp()" class="mat-icon-button" aria-label="Mover para cima" mdTooltip="Mover para cima">
+            <mat-icon>keyboard_arrow_up</mat-icon>
+        </button>
+
+        <button mat-button (click)="goDown()" class="mat-icon-button" aria-label="Mover para baixo" mdTooltip="Mover para baixo">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+
+        <button mat-button (click)="reset()" class="mat-icon-button mat-primary" aria-label="Restaurar imagem original" mdTooltip="Restaurar imagem original">
+            <mat-icon>cached</mat-icon>
+        </button>
+    </div>
+</div>

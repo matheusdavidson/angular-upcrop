@@ -1,0 +1,47 @@
+<h2 mat-dialog-title class="has-text-danger">
+    Upload de imagens
+    <small>com corte</small>
+</h2>
+<mat-dialog-content>
+
+    <!-- STEPS -->
+    <div steps>
+        <div steps-content fxLayout="row" fxLayoutAlign="start center">
+            <button mat-icon-button fxHide.xs [disabled]="!steps.current.previus || (steps.current.previusDisabled && steps.current.previusDisabled())"
+                (click)="steps.current.previusAction()">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+            <span fxFlex></span>
+            <h3>Passo
+                <b>{{steps.current.number}}</b> de
+                <b>{{steps.total}}</b> /
+                <span class="has-text-primary">{{steps.current.label}}</span>
+            </h3>
+            <span fxFlex></span>
+            <button mat-icon-button fxHide.xs [disabled]="!steps.current.next || (steps.current.nextDisabled && steps.current.nextDisabled())"
+                (click)="steps.current.nextAction()">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <!-- STEP 1 / UPLOAD -->
+    <div class="step-1" [hidden]="steps.current.number != 1">
+        <upcrop-upload #upcropUpload [config]="data.uploadConfig" (onUploadImage)="onUploadImage($event)"></upcrop-upload>
+    </div>
+
+    <!-- STEP 2 / CROP -->
+    <div class="step-2" [hidden]="steps.current.number != 2">
+        <upcrop-crop #upcropCrop [config]="data.cropConfig" (onCropImage)="onCropImage($event)"></upcrop-crop>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions *ngIf="steps.current.number == 1">
+    <button mat-button mat-dialog-close>Fechar</button>
+    <button mat-button color="primary" [disabled]="!upcropUpload.uploader.queue.length" (click)="goToStep2()">Continuar</button>
+</mat-dialog-actions>
+<mat-dialog-actions *ngIf="steps.current.number == 2">
+    <button mat-button (click)="goToStep1()">Voltar</button>
+    <button mat-button color="primary" [fxHide]="upcropCrop.uploader?.queue?.length == (upcropCrop.currentNumber + 1)" (click)="upcropCrop.goToNextCrop()">Próxima imagem</button>
+    <button mat-button color="primary" [fxHide]="upcropCrop.uploader?.queue?.length > (upcropCrop.currentNumber + 1)" [disabled]="upcropCrop.uploading"
+        (click)="finish()">Concluir</button>
+</mat-dialog-actions>
