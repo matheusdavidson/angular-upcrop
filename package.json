@@ -1,6 +1,30 @@
 {
   "name": "angular-upcrop-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Library with upload and crop feature for Angular 6+",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matheusdavidson/angular-upcrop"
+  },
+  "author": {
+    "name": "Matheus Davidson",
+    "email": "matheusdavidson@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "angular6",
+    "upload",
+    "ng2-file-upload",
+    "cropperjs",
+    "cropper",
+    "image",
+    "angular-library",
+    "angular-component"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matheusdavidson/angular-upcrop/issues"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
