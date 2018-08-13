@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule, MatIconModule, MatButtonModule, MatCardModule, MatTooltipModule } from '@angular/material';
 import { AngularCropperjsModule } from 'angular-cropperjs';
@@ -13,7 +12,6 @@ import { UpcropImagePreviewDirective } from './upcrop-image-preview/upcrop-image
 
 @NgModule({
     imports: [
-        BrowserAnimationsModule,
         CommonModule,
         FileUploadModule,
         FlexLayoutModule,
