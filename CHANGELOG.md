@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/matheusdavidson/angular-upcrop/compare/v1.0.1...v1.0.2) (2018-08-18)
+
+
+### Bug Fixes
+
+* **browser-module:** remove browser animation module, should be placed in the consuming app instead ([d08975d](https://github.com/matheusdavidson/angular-upcrop/commit/d08975d))
+* **upload:** return the whole result after upload ([632b7f7](https://github.com/matheusdavidson/angular-upcrop/commit/632b7f7))
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/matheusdavidson/angular-upcrop/compare/v1.0.0...v1.0.1) (2018-08-13)
 
